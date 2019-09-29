@@ -1,0 +1,10 @@
+:retry: 2
+development:
+  :concurrency: 1
+  :queues:
+  - [development_one, 1]
+  
+production:
+  :concurrency: 10
+  :queues:
+  - [production_one, 1]

@@ -1,0 +1,6 @@
+---
+test:
+  every: 5m
+  class: TestJob
+  queue: test
+  description: Test
