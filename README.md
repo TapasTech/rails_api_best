@@ -1,24 +1,3 @@
-# README
+# Rails API 最佳实践 基础框架GEM集成
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[跳转](https://menghuanwd.github.io/2019/09/29/railsapi.html)

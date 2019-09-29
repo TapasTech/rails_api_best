@@ -1,7 +1,7 @@
 redis:
   host: 127.0.0.1
-  password: small_shop
-  namespace: small_shop
+  password: rails_best
+  namespace: rails_best
   port: 6379
   queue: 1
   cache: 2
@@ -9,12 +9,12 @@ redis:
   sidekiq_db: 4
   expires_in: 3600
 mailer:
-  from: gyf006@17cc.cn
+  from: 651019063@qq.com
   address: smtp.mxhichina.com
   port: 465
-  domain: 17cc.cn
-  user_name: gyf006@17cc.cn
-  password: Gu1212036
+  domain: qq.com
+  user_name: 651019063@qq.com
+  password: xxxxxx
   authentication: plain
   ssl: true
   exception_recipients:

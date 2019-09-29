@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -52,7 +54,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "small_shops_server_production"
+  # config.active_job.queue_name_prefix = "railsapi_best_production"
 
   config.action_mailer.perform_caching = false
 
@@ -69,7 +71,7 @@ Rails.application.configure do
 
   # logger
   config.log_formatter = ::Logger::Formatter.new
-  
+
   # lograge
   config.lograge.enabled = true
 
