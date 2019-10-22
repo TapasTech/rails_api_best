@@ -4,7 +4,11 @@ require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   mount Sidekiq::Web, at: '/sidekiq'
 
   root 'home#index'
+
+  resources :articles
 end
