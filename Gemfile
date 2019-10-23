@@ -66,7 +66,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'rswag-specs'
-  
+
   gem 'airborne'
 
   gem 'factory_bot_rails'

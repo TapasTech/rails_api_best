@@ -17,7 +17,6 @@
 #  index_roles_on_resource_type_and_resource_id           (resource_type,resource_id)
 #
 
-
 class Role < ApplicationRecord
   has_and_belongs_to_many :editors, join_table: :editors_roles
 

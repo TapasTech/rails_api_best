@@ -10,11 +10,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    
     @article = Article.new article_params
     @article.save!
-
-    # debugger
 
     render :show
   end

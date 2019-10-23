@@ -14,7 +14,6 @@
 #  updated_at      :datetime         not null
 #
 
-
 class Editor < ApplicationRecord
   rolify
 end

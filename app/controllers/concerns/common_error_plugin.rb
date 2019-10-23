@@ -3,9 +3,8 @@
 concern :CommonErrorPlugin do
   included do
     rescue_from CustomMessageError, with: :error_4xx
-    # rescue_from Mongoid::Errors::Validations, with: :error_validate
-    rescue_from ActionController::ParameterMissing, with: :error_422
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    rescue_from ActionController::ParameterMissing, with: :error_422
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from AASM::InvalidTransition, with: :error_422
     rescue_from RailsParam::Param::InvalidParameterError, with: :error_422
@@ -23,7 +22,7 @@ concern :CommonErrorPlugin do
   end
 
   def render_not_found_response(error)
-    render json: { error: error.message }, status: :not_found
+    render json: { message: error.message }, status: :not_found
   end
 
   def error_4xx(e)

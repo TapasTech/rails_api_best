@@ -34,6 +34,7 @@ module RailsapiBestServer
     # active_job
     config.active_job.queue_adapter = :sidekiq
     config.active_job.queue_name_prefix = Rails.env
+
     config.active_job.queue_name_delimiter = '_'
 
     # action_mailer
