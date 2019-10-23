@@ -7,7 +7,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
       t.string :author
       t.string :summary
       t.text :content
-      t.integer :visit_times
+      t.integer :visit_times, default: 0
 
       t.timestamps
     end

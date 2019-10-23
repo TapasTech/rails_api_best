@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_083051) do
     t.string "author"
     t.string "summary"
     t.text "content"
-    t.integer "visit_times"
+    t.integer "visit_times", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

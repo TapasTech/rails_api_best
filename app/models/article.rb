@@ -9,7 +9,7 @@
 #  content     :text
 #  summary     :string
 #  title       :string
-#  visit_times :integer
+#  visit_times :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
