@@ -12,8 +12,10 @@ COPY Gemfile Gemfile.lock ./
 RUN apk update \
   && apk upgrade \
   && apk add --no-cache bash bash-doc bash-completion build-base tzdata libstdc++ \
+  && gem install bundler \
   && bundle install --deployment --without development:test:doc \
   && rm -rf /var/cache/apk/*
 
 COPY ./ ./
 
+# CMD ["bundle", "exec", "rails", "c", "-e", "production"]

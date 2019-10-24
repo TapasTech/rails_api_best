@@ -31,10 +31,19 @@ module RailsapiBestServer
     config.eager_load_paths += Dir[Rails.root.join('services')]
     config.eager_load_paths += Dir[Rails.root.join('lib')]
 
+    # cache_store
+    config.cache_store = :redis_cache_store, {
+      host: Settings.redis.host,
+      password: Settings.redis.password,
+      port: Settings.redis.port,
+      db: Settings.redis.cache,
+      expires_in: Settings.redis.expires_in,
+      namespace: Settings.redis.namespace
+    }
+
     # active_job
     config.active_job.queue_adapter = :sidekiq
     config.active_job.queue_name_prefix = Rails.env
-
     config.active_job.queue_name_delimiter = '_'
 
     # action_mailer

@@ -1,6 +1,6 @@
 redis:
   host: 127.0.0.1
-  password: rails_best
+  password: 
   namespace: rails_best
   port: 6379
   queue: 1
