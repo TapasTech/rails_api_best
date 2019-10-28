@@ -64,6 +64,8 @@ gem 'rswag-ui'
 group :development, :test do
   gem 'byebug'
 
+  gem 'bullet'
+
   gem 'rspec-rails'
   gem 'rswag-specs'
 
