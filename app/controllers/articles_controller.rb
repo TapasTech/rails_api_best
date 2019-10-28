@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show destroy]
 
   def index
-    @articles = Article.order(created_at: :desc).page(page).per(per)
+    @articles = Article.desc(:created_at).page(page).per(per)
 
     paginate @articles
   end

@@ -13,13 +13,13 @@ describe 'articles API' do
         examples 'application/json' => {
           data: [
             {
-              id: 1,
+              id: '5db668066da094424102fc32',
               title: 'Hello world!',
               summary: 'summary',
               content: 'content'
             },
             {
-              id: 2,
+              id: '5db668066da094424102fc32',
               title: 'Hello world!',
               summary: 'summary',
               content: 'content'
@@ -39,7 +39,7 @@ describe 'articles API' do
                          items: {
                            type: :object,
                            properties: {
-                             id: { type: :integer },
+                             id: { type: :string },
                              title: { type: :string },
                              summary: { type: :string },
                              content: { type: :string }
@@ -65,7 +65,7 @@ describe 'articles API' do
 
         run_test! do |_response|
           expect_json_sizes(data: 3)
-          expect_json_types('data.*', id: :integer, title: :string)
+          expect_json_types('data.*', id: :string, title: :string)
         end
       end
     end
@@ -114,12 +114,12 @@ describe 'articles API' do
 
       produces 'application/json'
 
-      parameter name: :id, in: :path, type: :integer, description: '文章ID'
+      parameter name: :id, in: :path, type: :string, description: '文章ID'
 
       response 200, '成功' do
         examples 'application/json' => {
           data: {
-            id: 1,
+            id: '5db668066da094424102fc32',
             title: 'Hello world!',
             summary: 'summary',
             content: 'content'
@@ -128,7 +128,7 @@ describe 'articles API' do
         schema type: :object,
                properties: {
                  data: {
-                   id: { type: :integer },
+                   id: { type: :string },
                    title: { type: :string },
                    content: { type: :string }
                  }

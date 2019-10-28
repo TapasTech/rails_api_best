@@ -1,0 +1,37 @@
+development:
+  clients:
+    default:
+      database: rails_seed_mongodb_production
+      hosts:
+        - 127.0.0.1:27017
+      options:
+        user: 
+        password: 
+        max_pool_size: 25
+        connect_timeout: 30
+        wait_queue_timeout: 10
+  options:
+test:
+  clients:
+    default:
+      database: rails_seed_mongodb_test
+      hosts:
+        - 127.0.0.1:27017
+      options:
+        max_pool_size: 25
+        connect_timeout: 30
+        wait_queue_timeout: 10
+  options:
+production:
+  clients:
+    default:
+      database: rails_seed_mongodb_production
+      hosts:
+        - 127.0.0.1:27017
+      options:
+        user: 
+        password: 
+        max_pool_size: 25
+        connect_timeout: 30
+        wait_queue_timeout: 10
+  options:
