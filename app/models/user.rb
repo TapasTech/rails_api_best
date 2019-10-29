@@ -7,6 +7,8 @@ class User
 
   has_secure_token :auth_token
 
+  validates :wechat_union_id, presence: true, uniqueness: true
+
   field :auth_token, type: String, default: ''
   
   field :username, type: String, default: ''

@@ -25,26 +25,22 @@ class WechatsController < ActionController::Base
     #   "qr_scene": 0,
     #   "qr_scene_str": ""
     # }
-    user = User.where(wechat_union_id: wechat_user['unionid']).first
+    
+    user = User.where(wechat_union_id: wechat_user['unionid']).first_or_create!
 
-    if user.present?
-      user.wechat_open_id = wechat_user['openid']
-      user.save
-    else
-      user_body = {
-        username: wechat_user['nickname'],
-        avatar: AliyunOssService.new.aliyun_oss_url(wechat_user['headimgurl']),
-        wechat_open_id: wechat_user['openid'],
-        wechat_union_id: wechat_user['unionid'],
-        gender: wechat_user['sex'] == 1 ? '男' : '女',
-        country: wechat_user['country'],
-        province: wechat_user['province'],
-        city: wechat_user['city'],
-        language: wechat_user['language']
-      }
+    user_body = {
+      username: wechat_user['nickname'],
+      avatar: AliyunOssService.new.aliyun_oss_url(wechat_user['headimgurl']),
+      wechat_open_id: wechat_user['openid'],
+      wechat_union_id: wechat_user['unionid'],
+      gender: wechat_user['sex'] == 1 ? '男' : '女',
+      country: wechat_user['country'],
+      province: wechat_user['province'],
+      city: wechat_user['city'],
+      language: wechat_user['language']
+    }
 
-      User.create!(user_body)
-    end
+    user.update!(user_body)
 
     request.reply.text '感谢你关注我们的公众号'
   end
