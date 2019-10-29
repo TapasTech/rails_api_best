@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ArticlesController < ApplicationController
+class Mini::ArticlesController < Mini::ApplicationController
   before_action :set_article, only: %i[show destroy]
 
   def index

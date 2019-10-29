@@ -3,7 +3,7 @@
 require 'swagger_helper'
 
 describe 'articles API' do
-  path '/articles' do
+  path '/mini/articles' do
     get '文章列表' do
       tags 'articles'
 
@@ -108,7 +108,7 @@ describe 'articles API' do
     end
   end
 
-  path '/articles/{id}' do
+  path '/mini/articles/{id}' do
     get '获取文章详情' do
       tags 'articles'
 

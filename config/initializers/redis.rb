@@ -9,6 +9,12 @@ redis_params = {
   id: nil
 }
 
+sidekiq_redis_params = {
+  url: "redis://#{Settings.redis.host}:#{Settings.redis.port}/#{Settings.redis.sidekiq_db}", 
+  namespace: Settings.redis.namespace,
+  password: Settings.redis.password
+}
+
 $redis = Redis::Namespace.new(
   Settings.redis.namespace,
   redis: Redis.new(redis_params.merge(db: Settings.redis.queue))
@@ -21,16 +27,14 @@ Redis.current = Redis::Namespace.new(
 )
 
 Sidekiq.configure_server do |config|
-  config.redis = redis_params.merge(db: Settings.redis.sidekiq_db)
-end
+  config.redis = sidekiq_redis_params
 
-Sidekiq.configure_client do |config|
-  config.redis = redis_params.merge(db: Settings.redis.sidekiq_db)
-end
-
-Sidekiq.configure_server do |config|
   config.on(:startup) do
     Sidekiq.schedule = YAML.load_file(File.expand_path('../scheduler.yml', __dir__))
     Sidekiq::Scheduler.reload_schedule!
   end
+end
+
+Sidekiq.configure_client do |config|
+  config.redis = sidekiq_redis_params
 end

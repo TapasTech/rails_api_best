@@ -53,6 +53,16 @@ gem 'logstash-logger'
 
 gem 'rolify'
 
+gem 'aliyun-sdk'
+
+gem 'aliyun-cloud_sms'
+
+gem 'wechat'
+
+gem 'wx_pay'
+
+gem 'alipay'
+
 gem 'rubocop-rails'
 
 gem 'rswag-api'

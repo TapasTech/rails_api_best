@@ -19,3 +19,33 @@ mailer:
   ssl: true
   exception_recipients:
     - 651019063@qq.com
+alipay:
+  url: 'https://openapi.alipay.com/gateway.do'
+  app_id: 'app_id'
+  app_private_key: 'app_private_key'
+  alipay_public_key: 'alipay_public_key'
+wechat_mini:
+  appid: appid
+  appsecret: appsecret
+wechat_open:
+  appid: appid
+  appsecret: appsecret
+wechat_business_wxpub:
+  mch_id: mch_id
+  secret: secret
+  mch_cert_p12_path: 'lib/1532292211/apiclient_cert.p12'
+wechat_business_app:
+  mch_id: mch_id
+  secret: secret
+  mch_cert_p12_path: 'lib/1532292211/apiclient_cert.p12'
+aliyun:
+  access_key:
+    root: root
+    guyifeng: guyifeng
+  access_key_secret:
+    root: root
+    guyifeng: guyifeng
+  oss:
+    bucket: bucket
+    domain: http://domain.test.com
+    role_arn: acs:ram::34341768:role/sts

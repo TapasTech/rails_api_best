@@ -1,0 +1,28 @@
+default: &default
+  appid: appid
+  secret: secret
+  token: token
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+mini_default: &mini_default
+  appid: appid
+  secret: secret
+  token: 
+  type: mp
+
+mini_development:
+  <<: *mini_default
+
+mini_test:
+  <<: *mini_default
+
+mini_production:
+  <<: *mini_default
