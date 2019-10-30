@@ -21,13 +21,14 @@ class Editor
   field :username, type: String, default: ''
   field :password_digest, type: String, default: ''
   field :auth_token, type: String, default: ''
-  field :last_login_time, type: ActiveSupport::TimeWithZone
+  field :last_logined_at, type: ActiveSupport::TimeWithZone
 
-  def access
-    roles_name
+  before_save do
+    puts 'editor before_save'
   end
 
-  def roles_name
-    roles.pluck(:name)
+  after_create do
+    puts 'editor after_create'
+    self.add_role(:merchant) if self.roles.blank?
   end
 end

@@ -2,4 +2,5 @@
 
 namespace :admin, path: '/admin' do
   resources :articles
+  resources :editors
 end
