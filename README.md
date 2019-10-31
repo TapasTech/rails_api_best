@@ -1,9 +1,15 @@
-# Rails API 最佳实践 基础框架GEM集成
+# Rails API Best Practise
 
-## Postgresql 版
+This rails framework is made up of many gems, we can use it conveniently to develop. 
+According to many history projects, I select some useful and frequent gems in it.
+So we only need to do some config, then it can work.
+
+Integrate functions about: doc、test、api, you can use TDD to develop your apis.
+
+## For Postgresql 
 
 [Branch postgresql](https://github.com/menghuanwd/rails_api_best/tree/postgresql)
 
-## Mongodb 版
+## For Mongodb
 
 [Branch mongodb](https://github.com/menghuanwd/rails_api_best/tree/mongodb)
