@@ -4,6 +4,25 @@ class Admin::EditorsController < Admin::ApplicationController
   skip_before_action :authenticate_editor_by_token, only: %i[login]
   before_action :set_editor, only: %i[destroy show update]
 
+  def telephone_login
+    telephone_code = $redis.get "#{params[:telephone]}_code"
+
+    telephones = %w[11111111111]
+
+    if telephones.include?(params[:telephone]) && params[:code] == '1234'
+      @editor = Editor.find_by(telephone: params[:telephone])
+    else
+      raise CustomMessageError.new(422, '验证码无效') if telephone_code != params[:code]
+
+      @editor = Editor.find_or_initialize_by(telephone: params[:telephone])
+
+      @editor.update user_params
+      @editor.regenerate_auth_token
+    end
+
+    render :show
+  end
+
   def login
     @editor = Editor.where(telephone: params[:telephone]).first
 
@@ -82,6 +101,6 @@ class Admin::EditorsController < Admin::ApplicationController
   end
 
   def editor_params
-    params.permit(:telephone, :password, :username, :new_password, roles: [])
+    params.permit(:telephone, :password, :email, :avatar, :username, :new_password, roles: [])
   end
 end

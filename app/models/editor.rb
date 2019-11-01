@@ -18,8 +18,10 @@ class Editor
   validates :telephone, presence: true, uniqueness: true
 
   field :telephone, type: String, default: ''
+  field :email, type: String, default: ''
+  
   field :username, type: String, default: ''
-  field :password_digest, type: String, default: ''
+  field :avatar, type: String, default: ''
   field :auth_token, type: String, default: ''
   field :last_logined_at, type: ActiveSupport::TimeWithZone
 
