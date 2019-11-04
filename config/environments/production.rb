@@ -86,5 +86,4 @@ Rails.application.configure do
       params: event.payload[:params]
     }
   end
-
 end

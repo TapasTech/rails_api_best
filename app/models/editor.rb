@@ -19,8 +19,8 @@ class Editor
 
   field :telephone, type: String, default: ''
   field :email, type: String, default: ''
-  
   field :username, type: String, default: ''
+
   field :avatar, type: String, default: ''
   field :auth_token, type: String, default: ''
   field :last_logined_at, type: ActiveSupport::TimeWithZone
@@ -31,6 +31,6 @@ class Editor
 
   after_create do
     puts 'editor after_create'
-    self.add_role(:merchant) if self.roles.blank?
+    add_role(:merchant) if roles.blank?
   end
 end

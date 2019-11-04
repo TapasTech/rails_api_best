@@ -10,7 +10,7 @@ redis_params = {
 }
 
 sidekiq_redis_params = {
-  url: "redis://#{Settings.redis.host}:#{Settings.redis.port}/#{Settings.redis.sidekiq_db}", 
+  url: "redis://#{Settings.redis.host}:#{Settings.redis.port}/#{Settings.redis.sidekiq_db}",
   namespace: Settings.redis.namespace,
   password: Settings.redis.password
 }

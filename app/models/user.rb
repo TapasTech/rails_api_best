@@ -12,10 +12,10 @@ class User
   validates :wechat_union_id, presence: true, uniqueness: true
 
   field :auth_token, type: String, default: ''
-  
+
   field :username, type: String, default: ''
   field :telephone, type: String, default: ''
-  
+
   field :gender, type: String, default: ''
   field :birthday, type: ActiveSupport::TimeWithZone, default: -> { Time.zone.now }
   field :avatar, type: String, default: ''

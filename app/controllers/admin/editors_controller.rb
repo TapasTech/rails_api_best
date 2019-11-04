@@ -57,7 +57,7 @@ class Admin::EditorsController < Admin::ApplicationController
   def index
     where = {}
 
-    @editors = 
+    @editors =
       if params[:role].present?
         Role.where(name: params[:role]).first.editors
       else
@@ -65,7 +65,7 @@ class Admin::EditorsController < Admin::ApplicationController
       end
 
     @editors = @editors.where(where).or(telephone: /#{params[:query]}/).or(username: /#{params[:query]}/).desc(:created_at).page(page).per(per)
-    
+
     paginate @editors
   end
 
@@ -90,7 +90,7 @@ class Admin::EditorsController < Admin::ApplicationController
 
   def destroy
     raise CustomMessageError.new(403, '您没权限做此操作') unless @current_editor.has_role?(:super_admin)
-    
+
     @editor.destroy
   end
 

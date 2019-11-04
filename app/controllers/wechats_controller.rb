@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WechatsController < ActionController::Base
   # For details on the DSL available within this file, see https://github.com/Eric-Guo/wechat#wechat_responder---rails-responder-controller-dsl
   wechat_responder
@@ -25,7 +27,7 @@ class WechatsController < ActionController::Base
     #   "qr_scene": 0,
     #   "qr_scene_str": ""
     # }
-    
+
     user = User.where(wechat_union_id: wechat_user['unionid']).first_or_create!
 
     user_body = {

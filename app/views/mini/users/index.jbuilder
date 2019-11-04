@@ -5,6 +5,7 @@ json.array! @users do |user|
   json.extract! user,
                 :created_at,
                 :username,
+                :email,
                 :telephone,
                 :mini_open_id,
                 :app_open_id,
@@ -17,6 +18,5 @@ json.array! @users do |user|
                 :county,
                 :gender,
                 :birthday,
-                :auth_token,
-                :balance
+                :auth_token
 end

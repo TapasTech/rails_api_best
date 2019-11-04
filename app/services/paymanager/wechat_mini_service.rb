@@ -69,7 +69,9 @@ module Paymanager
         desc: desc
       )
 
-      raise CustomMessageError.new(422, result[:raw]['xml']['err_code_des']) if result[:raw]['xml']['result_code'] != 'SUCCESS' || result[:raw]['xml']['return_msg'] != '支付成功'
+      if result[:raw]['xml']['result_code'] != 'SUCCESS' || result[:raw]['xml']['return_msg'] != '支付成功'
+        raise CustomMessageError.new(422, result[:raw]['xml']['err_code_des'])
+      end
     end
 
     def query_bank(partner_trade_no)
