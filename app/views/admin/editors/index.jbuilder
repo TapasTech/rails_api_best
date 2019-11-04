@@ -5,12 +5,7 @@ json.array! @editors do |editor|
   json.extract! editor,
                 :telephone,
                 :username,
+                :email,
                 :auth_token,
-                :last_logined_at,
-                :access,
-                :roles
-  json.schools editor.schools do |school|
-    json.id school.id.to_s
-    json.extract! school, :name
-  end
+                :role_names
 end

@@ -23,7 +23,6 @@ class Editor
 
   field :avatar, type: String, default: ''
   field :auth_token, type: String, default: ''
-  field :last_logined_at, type: ActiveSupport::TimeWithZone
 
   before_save do
     puts 'editor before_save'
@@ -31,6 +30,9 @@ class Editor
 
   after_create do
     puts 'editor after_create'
-    add_role(:merchant) if roles.blank?
+  end
+
+  def role_names
+    roles.pluck(:name)
   end
 end

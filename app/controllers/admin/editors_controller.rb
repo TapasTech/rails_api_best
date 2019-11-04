@@ -5,20 +5,17 @@ class Admin::EditorsController < Admin::ApplicationController
   before_action :set_editor, only: %i[destroy show update]
 
   def telephone_login
-    telephone_code = $redis.get "#{params[:telephone]}_code"
+    telephone = params[:mobile]
+    code = params[:captcha]
 
-    telephones = %w[11111111111]
-
-    if telephones.include?(params[:telephone]) && params[:code] == '1234'
-      @editor = Editor.find_by(telephone: params[:telephone])
-    else
-      raise CustomMessageError.new(422, '验证码无效') if telephone_code != params[:code]
-
-      @editor = Editor.find_or_initialize_by(telephone: params[:telephone])
-
-      @editor.update user_params
-      @editor.regenerate_auth_token
+    unless %w[15201991025].include?(telephone) && code == '1234'
+      telephone_code = $redis.get "#{telephone}_code"
+      raise CustomMessageError.new(422, '验证码无效') if telephone_code != code
     end
+
+    @editor = Editor.where(telephone: telephone).first
+
+    raise CustomMessageError.new(401, '用户不存在') if @editor.blank?
 
     render :show
   end
@@ -27,9 +24,6 @@ class Admin::EditorsController < Admin::ApplicationController
     @editor = Editor.where(telephone: params[:telephone]).first
 
     raise CustomMessageError.new(401, '账号或密码错误') if @editor.try(:authenticate, params[:password])
-
-    @editor.last_logined_at = Time.zone.now
-    @editor.save
 
     render :show
   end
@@ -46,8 +40,6 @@ class Admin::EditorsController < Admin::ApplicationController
 
   def me
     @editor = @current_editor
-    @editor.last_logined_at = Time.zone.now
-    @editor.save
 
     render :show
   end

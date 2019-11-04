@@ -4,7 +4,6 @@ json.id @editor.id.to_s
 json.extract! @editor,
               :telephone,
               :username,
+              :email,
               :auth_token,
-              :last_logined_at,
-              :access,
-              :roles
+              :role_names
